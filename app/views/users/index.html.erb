@@ -1,0 +1,33 @@
+<h1>List user</h1>
+<p style="color: green"><%= notice %></p>
+<p>Counting: <span id="user_count"><%= @users.count %></span></p>
+<table id="user_table">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @users.each do |user| %>
+    <tr id="user_<%= user.id %>">
+      <td><%= user.name %></td>
+      <td>
+        <%#= form_with(model: user, method: :delete, data: { confirm: "Are you sure?"}) do |f| %>
+          <%#= f.submit "Destroy", class: "btn" %>
+        <%# end %>
+      <td>
+        <%= link_to "Destroy", user, data: { "turbo-method": :delete,
+                                             turbo_confirm: "Are you sure?" } %>
+      </td>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<hr>
+
+<h1>New User</h1>
+<br>
+<%= render "form", user: @user %>

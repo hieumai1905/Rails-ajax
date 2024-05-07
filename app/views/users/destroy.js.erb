@@ -1,0 +1,4 @@
+// views/users/destroy.js.erb
+$(`#user_${<%= @user.id %>}`).remove();
+var userCount = $('#user_count');
+userCount.textContent = parseInt(userCount.textContent) - 1;
